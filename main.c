@@ -1,10 +1,12 @@
 #include "graph.h"
+#include <stdio.h>
 
-/*GRUPO
+/*
+=== GRUPO ===
 15512767 - José Fausto Vital Barbosa
-Aluno 2
-Aluno 3
-Aluno 4
+16876293 - João Pedro Boaretto
+16897421 - Philippe Sardenberg Castro Couto
+16854281 - André Luiz Sousa Paião
 */
 
 
