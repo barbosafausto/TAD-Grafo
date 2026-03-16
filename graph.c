@@ -27,3 +27,20 @@ GRAFO* MyGraph(int N) {
 
     return G;
 }
+
+int** adjacency_matrix(GRAFO* G){
+    if (G != NULL){
+        return (G->adj_matrix);    
+    }
+    else{
+        return NULL;
+    }
+}
+
+bool add_edge(GRAFO* G, int u, int v, int w){
+    if (G != NULL){
+        G->adj_matrix[u][v] = w;
+        return true;
+    }
+    return false;
+}
