@@ -11,6 +11,11 @@
 
 
 int main() {
+
+    GRAFO *G = MyGraph(5);
+
+    if (!G) printf("NULL\n");
+    else printf("Ok!\n");
     
 
     return 0;

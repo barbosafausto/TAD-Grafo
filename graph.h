@@ -16,9 +16,9 @@
     bool add_edge(GRAFO* G, int u, int v, int w);
 
     //Retorna 1 se a aresta existe, 0 caso contrário.
-    int_8 (GRAFO* G, int u, int v);
+    int_8 exist_edge(GRAFO* G, int u, int v);
 
-    //Retorna um array (pexist_edgeonteiro) contendo os vizinhos do vértice u.
+    //Retorna um array (ponteiro) contendo os vizinhos do vértice u.
     int* neighbors(GRAFO* G, int u);
 
     //Remove a aresta entre dois vértices (u, v). Retorna True se bem-sucedido.
