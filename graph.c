@@ -27,3 +27,34 @@ GRAFO* MyGraph(int N) {
 
     return G;
 }
+
+int** adjacency_matrix(GRAFO* G){
+    if (G != NULL){
+        return (G->adj_matrix);    
+    }
+    else{
+        return NULL;
+    }
+}
+
+bool add_edge(GRAFO* G, int u, int v, int w){
+    if (G != NULL){
+        G->adj_matrix[u][v] = w;
+        return true;
+    }
+    return false;
+}
+
+int_8 remove_edge(GRAFO* G, int u, int v){
+    if (G != NULL && u >= 0 && u < G->N && v >= 0 && v < G->N){
+        if(G->adj_matrix[u][v] != -1){
+            G->adj_matrix[u][v] = -1;
+            return 1;
+        }
+        printf("-1\n");
+        return -1;
+
+
+    }
+    return 0;
+}
