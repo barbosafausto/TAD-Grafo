@@ -21,8 +21,8 @@
     //Retorna um array (ponteiro) contendo os vizinhos do vértice u.
     int* neighbors(GRAFO* G, int u);
 
-    //Remove a aresta entre dois vértices (u, v). Retorna True se bem-sucedido.
-    bool remove_edge(GRAFO* G, int u, int v);
+    //Remove a aresta entre dois vértices (u, v). Retorna e escreve -1 caso a aresta não exista.
+    int_8 remove_edge(GRAFO* G, int u, int v);
 
     //Imprime todos os vértices e arestas do grafo.
     void print_info(GRAFO* G);
