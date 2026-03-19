@@ -29,6 +29,14 @@ GRAFO* MyGraph(int N) {
     return G;
 }
 
+bool valid(GRAFO*G, int u, int v) {
+
+    if (!G || u < 0 || v < 0 || u >= G->N || v >= G->N) 
+        return false;
+
+    return true;
+}
+
 int** adjacency_matrix(GRAFO* G){
     
     if (G != NULL)
@@ -37,8 +45,9 @@ int** adjacency_matrix(GRAFO* G){
         return NULL;
 }
 
-bool add_edge(GRAFO* G, int u, int v, int w){
-    if (G != NULL && u >= 0 && u < G-> N && v >= 0 && v < G->N) {
+bool add_edge(GRAFO* G, int u, int v, int w) {
+
+    if (valid(G, u, v)) {
 
         G->adj_matrix[u][v] = G->adj_matrix[v][u] = w;
         return true;
@@ -46,8 +55,19 @@ bool add_edge(GRAFO* G, int u, int v, int w){
     return false;
 }
 
+int_8 exist_edge(GRAFO* G, int u, int v) {
+
+    if (valid(G, u, v)) {
+
+        return (G->adj_matrix[u][v] == -1) ? 0 : 1;
+    }
+
+    return 0;
+}
+
 int_8 remove_edge(GRAFO* G, int u, int v){
-    if (G != NULL && u >= 0 && u < G->N && v >= 0 && v < G->N) {
+
+    if (valid(G, u, v)) {
 
         if(G->adj_matrix[u][v] != -1) {
 
@@ -61,3 +81,5 @@ int_8 remove_edge(GRAFO* G, int u, int v){
     }
     return 0;
 }
+
+

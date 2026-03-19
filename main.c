@@ -28,6 +28,11 @@ int main() {
     add_edge(G, 1, 2, 1);
     add_edge(G, 3, 4, 8);
     print_matrix(G);
+
+    printf("%d\n", exist_edge(G, 1, 2));
+    printf("%d\n", exist_edge(G, 0, 1));
+    printf("%d\n", exist_edge(G, 5, 1));
+    
     
 
     return 0;
