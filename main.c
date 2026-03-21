@@ -33,7 +33,8 @@ int main() {
     printf("%d\n", exist_edge(G, 0, 1));
     printf("%d\n", exist_edge(G, 5, 1));
     
-    
+    if (delete_graph(&G)) printf("Deletado");
+    else printf("Erro ao deletar");
 
     return 0;
 }

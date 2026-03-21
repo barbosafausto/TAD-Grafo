@@ -82,4 +82,23 @@ int_8 remove_edge(GRAFO* G, int u, int v){
     return 0;
 }
 
+bool delete_graph(GRAFO** G){
 
+    if (G == NULL || *G == NULL) return false;
+
+    if ((*G)->adj_matrix != NULL){
+        for (int i = 0; i < (*G)->N; i++)
+        {
+            free((*G)->adj_matrix[i]);
+            (*G)->adj_matrix[i] = NULL;
+        }
+        free((*G)->adj_matrix);
+        (*G)->adj_matrix = NULL;
+    }
+
+    free(*G);
+    *G = NULL;
+
+    return true;
+
+}
