@@ -9,32 +9,54 @@
 16854281 - André Luiz Sousa Paião
 */
 
-void print_matrix(GRAFO* G){
-    for(int i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
-            printf("%d ", adjacency_matrix(G)[i][j]);
-        }
-        printf("\n");
-    }
-}
-
 int main() {
 
-    GRAFO *G = MyGraph(5);
+    int option;
+    int N, x, y, w;
+    int res;
+    bool print_status = 1;
 
-    if (!G) printf("NULL\n");
-    else printf("Ok!\n");
+    Graph *G = NULL;
 
-    add_edge(G, 1, 2, 1);
-    add_edge(G, 3, 4, 8);
-    print_matrix(G);
+    scanf("%d", &option);
 
-    printf("%d\n", exist_edge(G, 1, 2));
-    printf("%d\n", exist_edge(G, 0, 1));
-    printf("%d\n", exist_edge(G, 5, 1));
-    
-    if (delete_graph(&G)) printf("Deletado");
-    else printf("Erro ao deletar");
+    while (option != -1)
+    {
+        switch (option){
 
+        case 0:
+            scanf("%d", &N);
+            G = MyGraph(N);
+            break;
+
+        case 1:
+            // adicionamos
+            scanf("%d %d %d", &x, &y, &w);
+            add_edge(G, x, y, w);
+            break;
+
+        case 2:
+            // get
+            scanf("%d %d", &x, &y);
+            res = exist_edge(G, x, y);
+            print_status = 0;
+            break;
+
+        default:
+            printf("unrecognized option %d!\n", option);
+        }
+
+        scanf("%d\n", &option);
+    }
+
+    if (option == -1) {
+        if (print_status)
+            print_info(G);
+        else
+            printf("%d\n", res);
+
+    }
+
+    remove_graph(&G);
     return 0;
 }
