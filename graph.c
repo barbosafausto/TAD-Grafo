@@ -102,3 +102,25 @@ bool delete_graph(GRAFO** G){
     return true;
 
 }
+
+int max_neighbors(GRAFO *G){
+    if(!G){
+        return -1;
+    }
+    int neighbors = 0;
+    int aux = 0;
+    int u = 0;
+    for(int i = 0; i < G->N; i++){
+        for(int j = 0; j < G->N; j++){
+            if(G->adj_matrix[i][j] != -1){
+                aux++;
+            }
+        }
+        if(aux > neighbors){
+            u = i;
+            neighbors = aux;
+        }
+        aux = 0;
+    }
+    return u;
+}
