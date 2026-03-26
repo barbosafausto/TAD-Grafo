@@ -124,3 +124,24 @@ int max_neighbors(GRAFO *G){
     }
     return u;
 }
+
+int* neighbors(GRAFO* G, int u){
+    // Implementação da função neighbors com sentinela -1
+
+    if (G == NULL || u < 0 || u >= G->N) return NULL; // validar entrada
+
+    int* neighbors = (int*) malloc((G->N+1) * sizeof(int)); // +1 para caso o grafo tenha laço
+    if (!neighbors) return NULL; // Erro de alocação
+
+    int count = 0;
+
+    for (int v = 0; v < G->N; v++) {
+        if (G->adj_matrix[u][v] != -1) {
+            neighbors[count++] = v;
+        }
+    }
+
+    neighbors[count] = -1; // Marcador de fim da lista
+
+    return neighbors;
+}
