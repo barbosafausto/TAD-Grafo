@@ -14,7 +14,6 @@ main.o:
 	gcc -c main.c
 
 clean:
-	rm a.out
 	rm *.o
 	rm main
 

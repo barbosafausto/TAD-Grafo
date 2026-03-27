@@ -93,7 +93,8 @@ int_8 remove_edge(Graph* G, int u, int v){
         return -1;
     }
     
-    return 0;
+    //Erro, retorna -1
+    return -1;
 }
 
 void print_info(Graph* G) {
@@ -101,7 +102,7 @@ void print_info(Graph* G) {
     if (!G) return;
     
     //Impressão dos vértices
-    printf("[");
+    printf("V = [");
     for (int i = 1; i <= G->N; i++) {
         
         printf("%d", i);
@@ -111,12 +112,12 @@ void print_info(Graph* G) {
     printf("]\n");
 
     //Impressão das arestas por coluna
-    printf("[");
+    printf("E = [");
     bool first = true;
     for (int j = 1; j <= G->N; j++) {
 
         //Vizinho do vértice j
-        for (int i = j+1; i <= G->N; i++) {
+        for (int i = 1; i <= j; i++) {
 
             if (G->adj_matrix[i][j] != -1) {
                 
@@ -134,7 +135,7 @@ void print_info(Graph* G) {
 
 bool remove_graph(Graph** G){
 
-    //Se o grafo é inválido, aborta e retorna falso
+    
     if (G == NULL || *G == NULL) return false;
 
     //Se a matriz existe

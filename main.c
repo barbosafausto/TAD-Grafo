@@ -1,5 +1,6 @@
 #include "graph.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
 === GRUPO ===
@@ -14,7 +15,7 @@ int main() {
     int option;
     int N, x, y, w;
     int res;
-    bool print_status = 1;
+    int print_status = 1;
 
     Graph *G = NULL;
 
@@ -42,17 +43,46 @@ int main() {
             print_status = 0;
             break;
 
+        case 3:
+            scanf("%d", &x);
+            
+            int* viz = neighbors(G, x);
+            if (viz) {
+
+                int i;
+                for (i = 0; viz[i] != -1; i++)
+                    printf("%d ", viz[i]);
+                printf("\n");
+
+                free(viz);
+            }
+            print_status = -1;
+
+            break;
+
+        case 4:
+            
+            scanf("%d %d", &x, &y);
+
+            if(remove_edge(G, x, y) == -1) {
+
+                print_status = -1;
+           printf("-1\n");
+            }
+
+            break;
+
         default:
             printf("unrecognized option %d!\n", option);
         }
 
-        scanf("%d\n", &option);
+        scanf("%d", &option);
     }
 
     if (option == -1) {
-        if (print_status)
+        if (print_status == 1)
             print_info(G);
-        else
+        else if (print_status == 0)
             printf("%d\n", res);
 
     }
