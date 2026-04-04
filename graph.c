@@ -173,7 +173,7 @@ int max_neighbors(Graph *G){
     
     for(int i = 1; i <= G->N; i++) {
 
-        for(int j = i+1; j <= G->N; j++) { //j = i+1, pois a matriz é simétrica
+        for(int j = 1; j <= G->N; j++) { //j = i+1, pois a matriz é simétrica
 
             //Se tem aresta, é um vizinho a mais
             if(G->adj_matrix[i][j] != -1){

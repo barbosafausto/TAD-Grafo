@@ -16,6 +16,8 @@ int main() {
     int N, x, y, w;
     int res;
     int print_status = 1;
+    int** adj_matrix = NULL;
+    int u;
 
     Graph *G = NULL;
 
@@ -64,12 +66,37 @@ int main() {
             
             scanf("%d %d", &x, &y);
 
-            if(remove_edge(G, x, y) == -1) {
+            if (remove_edge(G, x, y) == -1) {
 
                 print_status = -1;
-           printf("-1\n");
+                printf("-1\n");
             }
 
+            break;
+
+        case 5: 
+
+            adj_matrix = adjacency_matrix(G);
+            printf("Adjacency Matrix:\n");
+
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= N; j++) {
+
+                    printf("%*d", 3, (adj_matrix[i][j] == -1) ? 0 : adj_matrix[i][j]);
+
+                    if (j < N) printf(" ");
+                }
+                printf("\n");
+            }
+
+            print_status = -1;
+            break;
+
+        case 6:
+
+            u = max_neighbors(G);
+            printf("max vertex: %d\n", u);
+            print_status = -1;
             break;
 
         default:

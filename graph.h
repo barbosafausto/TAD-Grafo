@@ -36,6 +36,5 @@
 
     //Retorna a matriz de adjacência do grafo (ponteiro de ponteiro).
     int** adjacency_matrix(Graph* G);
-    
 
 #endif
