@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <string.h>
+
+#include <stdbool.h>
+#define int_8 char //Definição de inteiro de 8 bits
 
 /*
 === GRUPO ===
@@ -10,11 +14,7 @@
 16854281 - André Luiz Sousa Paião
 */
 
-#include <stdbool.h>
-#define int_8 char //Definição de inteiro de 8 bits
-
 typedef struct grafo Graph;
-
 struct grafo {
 
     int N;
@@ -218,7 +218,7 @@ int main() {
     int N, x, y, w;
     int res;
     int print_status = 1;
-    int **adj_matrix = NULL;
+    int** adj_matrix = NULL;
     int u;
 
     Graph *G = NULL;
